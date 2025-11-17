@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -7,30 +7,57 @@ import Contact from "./components/Contact";
 import References from "./components/References";
 
 function App() {
-  const [about, setAbout] = useState(null);
-  const [skills, setSkills] = useState([]);
-  const [projects, setProjects] = useState([]);
+  // Static data instead of fetching from backend
+  const aboutData = {
+    name: "Rodgine Mallari",
+    description: "I'm a Full Stack Developer...",
+    highlights: [
+      "Proficient in React, Laravel, and C#",
+      "Experience building e-commerce and POS systems",
+      "Passionate about clean, maintainable code"
+    ]
+  };
 
-  useEffect(() => {
-    fetch("http://localhost/Portfolio/backend/api/about.php")
-      .then((res) => res.json())
-      .then(setAbout);
+  const skillsData = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React.js",
+    "Laravel",
+    "Bootstrap",
+    "C#",
+    "SQL",
+    ".NET Framework",
+    ".NET MAUI",
+    "REST APIs",
+    "PHP"
+  ];
 
-    fetch("http://localhost/Portfolio/backend/api/skills.php")
-      .then((res) => res.json())
-      .then(setSkills);
-
-    fetch("http://localhost/Portfolio/backend/api/projects.php")
-      .then((res) => res.json())
-      .then(setProjects);
-  }, []);
+  const projectsData = [
+    {
+      title: "Portfolio Website",
+      description: "My personal portfolio website built with React",
+      link: "https://github.com/your-username/portfolio"
+    },
+    {
+      title: "Vintage Closet",
+      description: "E-commerce site built with Laravel and React",
+      link: "https://github.com/your-username/vintage-closet"
+    },
+    {
+      title: "SKRMS Automation",
+      description: "Automated report and email system built with C# Selenium",
+      link: "https://github.com/your-username/skrms-automation"
+    }
+    // Add more projects as needed
+  ];
 
   return (
     <div className="bg-light text-dark">
       <Hero />
-      {about && <About data={about} highlights={about.highlights} />}
-      <Skills data={skills} />
-      <Projects data={projects} />
+      <About data={aboutData} highlights={aboutData.highlights} />
+      <Skills data={skillsData} />
+      <Projects data={projectsData} />
       <References />
       <Contact />
     </div>
