@@ -1,0 +1,371 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600;700&display=swap");
+
+/* Global body styles */
+body {
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background-color: whitesmoke;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+/* Dark/Light mode */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #ffffff;
+    color: #213547;
+  }
+}
+
+/* Links */
+a {
+  color: #646cff;
+  text-decoration: none;
+  font-weight: 500;
+}
+a:hover {
+  color: #535bf2;
+}
+
+/* Headings */
+h1, h2, h3 {
+  font-weight: 700;
+}
+
+/* Buttons */
+.btn-custom {
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-weight: 500;
+  transition: 0.25s;
+}
+.btn-custom:hover {
+  border-color: #646cff;
+}
+@media (prefers-color-scheme: light) {
+  .btn-custom {
+    background-color: #f9f9f9;
+    color: #213547;
+  }
+}
+
+
+
+
+
+
+
+/*Additional Styles*/
+
+/* ================================
+   HERO SECTION BASE STYLING
+=================================== */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #f7f2ff;
+  padding: 60px 15px; /* Added padding for mobile */
+  z-index: 1;
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: #6f42c1;
+  clip-path: ellipse(70% 55% at 95% 50%);
+  z-index: -5;
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.12),
+    rgba(255, 255, 255, 0.03)
+  );
+  transform: skewX(-18deg);
+  opacity: 0.55;
+  pointer-events: none;
+  z-index: -4;
+}
+
+/* ================================
+   IMAGE WRAPPER + EFFECTS
+=================================== */
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+  z-index: 10;
+}
+
+/* Glow behind the image */
+.hero-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -35px;
+  border-radius: 30px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.45) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  filter: blur(40px);
+  z-index: -1;
+}
+
+/* Glassmorphic border */
+.glass-frame {
+  position: absolute;
+  inset: -18px;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  z-index: -2;
+}
+
+/* ================================
+   MAIN IMAGE STYLE
+=================================== */
+.hero-image {
+  width: 100%;
+  max-width: 480px; /* Limit image size on mobile */
+  border-radius: 25px;
+  transition: 0.45s ease-in-out;
+  filter: drop-shadow(0px 18px 28px rgba(0, 0, 0, 0.25));
+}
+
+/* Hover effect */
+.hero-image:hover {
+  transform: scale(1.08) translateY(-4px);
+  filter:
+    drop-shadow(0px 28px 40px rgba(0, 0, 0, 0.35))
+    blur(1px)
+    brightness(1.08);
+}
+
+/* ================================
+   CIRCULAR GRADIENT RING
+=================================== */
+.gradient-ring {
+  position: absolute;
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  z-index: -3;
+  left: 50%;
+  top: 50%;
+  transform: translate(-40%, -50%);
+  opacity: 0.35;
+
+  background: conic-gradient(
+    from 120deg,
+    #b388ff,
+    #8c4bff,
+    #7b2cff,
+    #9d4aff,
+    #caa2ff,
+    #b388ff
+  );
+
+  filter: blur(35px);
+  animation: spinRing 16s linear infinite;
+}
+
+@keyframes spinRing {
+  0% { transform: translate(-40%, -50%) rotate(0deg); }
+  100% { transform: translate(-40%, -50%) rotate(360deg); }
+}
+
+/* ================================
+   FLOATING GEOMETRIC SHAPES
+=================================== */
+.shape {
+  position: absolute;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  opacity: 0.35;
+  filter: blur(1px);
+  animation: floatShape 6s ease-in-out infinite;
+  z-index: -2;
+}
+
+.shape-1 { background: #d7b5ff; top: 8%; right: 22%; animation-delay: 0s; }
+.shape-2 { background: #b983ff; top: 68%; right: 12%; animation-delay: 1s; }
+.shape-3 { background: #a465ff; top: 42%; left: -8%; animation-delay: 2s; }
+
+@keyframes floatShape { 0% { transform: translateY(0); } 50% { transform: translateY(-20px); } 100% { transform: translateY(0); } }
+
+/* ================================
+   TEXT SECTION
+=================================== */
+.hero-subtitle { font-size: 14px; letter-spacing: 2px; font-weight: 600; color: #6f42c1; text-transform: uppercase; }
+.hero-title { font-size: 3rem; font-weight: 800; line-height: 1.2; color: #222; }
+.highlight { color: #6f42c1; }
+.hero-description { margin-top: 15px; font-size: 1.1rem; color: #555; max-width: 420px; }
+
+/* ================================
+   BUTTONS
+=================================== */
+.hero-btn-primary { background-color: #6f42c1; color: white; padding: 10px 22px; border-radius: 8px; font-weight: 600; border: none; transition: 0.3s; }
+.hero-btn-primary:hover { background-color: #5a34a0; }
+.hero-btn-outline { border: 2px solid #6f42c1; padding: 10px 22px; border-radius: 8px; font-weight: 600; color: #6f42c1; background: transparent; transition: 0.3s; }
+.hero-btn-outline:hover { background-color: #6f42c1; color: white; }
+
+/* ================================
+   RESPONSIVE FIXES
+=================================== */
+@media (max-width: 992px) {
+  .hero-image { max-width: 380px; }
+  .gradient-ring { width: 450px; height: 450px; }
+  .shape { width: 32px; height: 32px; }
+  .hero-title { font-size: 2.5rem; }
+  .hero-description { max-width: 100%; }
+}
+
+@media (max-width: 576px) {
+  .hero-section { flex-direction: column; padding: 40px 15px; }
+  .col-lg-6 { width: 100%; text-align: center; }
+  .hero-image { max-width: 280px; margin-top: 30px; }
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 1rem; }
+  .hero-btn-primary, .hero-btn-outline { padding: 8px 18px; font-size: 0.9rem; }
+}
+
+/* Horizontal logos above text */
+.hero-logos-horizontal .logo-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 6px;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15));
+  transition: 0.3s;
+}
+
+/* Shadow card behind hero image */
+.hero-image-card {
+  position: absolute;
+  inset: 0;
+  background: rgba(111, 66, 193, 0.1);
+  border-radius: 25px;
+  filter: blur(50px);
+  z-index: -4;
+  top: 20px;
+  left: -20px;
+}
+
+/* Adjustments for mobile */
+@media (max-width: 576px) {
+  .hero-logos-horizontal {
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .hero-logos-horizontal .logo-img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .hero-title { font-size: 2rem; }
+  .hero-description { font-size: 1rem; }
+  .hero-btn-primary, .hero-btn-outline { padding: 8px 18px; font-size: 0.9rem; }
+}
+
+.hero-cards-overlap {
+  position: relative;
+  width: 320px;
+  height: 420px;
+}
+
+.hero-card-overlap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 280px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+/* Zig-zag offsets */
+.hero-card-overlap:nth-child(1) {
+  transform: translateX(0px) translateY(0px);
+}
+.hero-card-overlap:nth-child(2) {
+  transform: translateX(30px) translateY(30px);
+}
+.hero-card-overlap:nth-child(3) {
+  transform: translateX(-20px) translateY(60px);
+}
+
+/* Hover effect */
+.hero-card-overlap:hover {
+  transform: translateY(-10px) scale(1.05);
+}
+
+/* Glass frame */
+.hero-card-overlap .glass-frame {
+  position: absolute;
+  inset: -12px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: -1;
+}
+
+.hero-card-overlap .hero-image {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0px 18px 28px rgba(0, 0, 0, 0.25);
+}
+
+.card-title {
+  text-align: center;
+  font-weight: 600;
+  color: #6f42c1;
+  margin-top: 8px;
+}
+
+@media (max-width: 992px) {
+  .hero-cards-overlap {
+    width: 260px;
+    height: 360px;
+  }
+  .hero-card-overlap {
+    width: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-cards-overlap {
+    width: 220px;
+    height: 300px;
+  }
+  .hero-card-overlap {
+    width: 200px;
+  }
+}
+.text-justify{
+  text-align: justify;
+}
