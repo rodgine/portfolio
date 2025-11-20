@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   const logos = [
-    { src: "/logos/cfpj.png", alt: "High School" },
-    { src: "/logos/csu.png", alt: "College" },
-    { src: "/logos/ddssi2.png", alt: "OJT" },
-    { src: "/logos/afmsi.png", alt: "Work" },
+    { src: "/portfolio/logos/cfpj.png", alt: "High School" },
+    { src: "/portfolio/logos/csu.png", alt: "College" },
+    { src: "/portfolio/logos/ddssi2.png", alt: "OJT" },
+    { src: "/portfolio/logos/afmsi.png", alt: "Work" },
   ];
 
   return (
