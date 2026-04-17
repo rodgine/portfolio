@@ -19,6 +19,20 @@ const projectData = [
     link: "#",
   },
   {
+    name: "DocQueue",
+    description:
+      "A modern web-based document request and queuing system built with pure PHP, Tailwind CSS, and Alpine.js, supporting dynamic request browsing, live queue tracking, online submissions, and a clean, responsive UI",
+    image: "/projects/image.png",
+    link: "https://csuqms.page.gd/",
+  },
+  {
+    name: "RiceGuard",
+    description:
+      "An IoT-enabled rice crop detection and alarm system built with Arduino, pure PHP web server, and YOLO for image detection logic, supporting real-time monitoring, pest & disease detection, and instant alert notifications.",
+    image: "/projects/riceguard.png",
+    link: "https://csuriceguard.page.gd/",
+  },
+  {
     name: "CSU-OSMIS",
     description:
       "An Online Scholarship Management System for CSU students, developed in native PHP, handling student applications, approvals, and reporting efficiently.",
